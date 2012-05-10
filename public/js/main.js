@@ -11,12 +11,9 @@
 	bgImg.onload = initilize
 
 	function initilize() {
-		/*
 		for(var i=0; i<tmp.layers.length;i++) {
-			drawLayer(tmp.layers[i])
+			drawLayer(tmp.layers[i])	
 		}
-		*/
-		drawLayer(tmp.layers[0])
 	}
 
 	function drawLayer(layer){
@@ -34,10 +31,9 @@
 				top += sh/2
 
 				if(i%width==0) {
-					console.log('LALA: ',Math.floor(i/width))
 					row=Math.floor(i/width)
 					top=row*sh/2
-					left=window.innerWidth/2 - row*sw/2
+					left=(container.getSize().x)/2 - row*sw/2
 				}
 
 				drawTile(left, top, arr[i])
@@ -45,22 +41,22 @@
 	}
 
 function drawTile(left, top, pos) {
-	if(pos!=0){
-		pos = pos-1
+	if (pos!=0) {
+		--pos
 		var
 			oImg = document.createElement("div"),
 			width = parseInt(bgImg.width) / sw,
 			bleft =  sw * (pos%width),
 			btop = Math.floor(pos/width) * sh_p
-			//console.log(bleft, btop, pos)
 
-		oImg.setStyles({'background':'url('+bgImg.src+') -'+bleft +'px -'+ btop +'px no-repeat','width':sw,'height':128})
-		oImg.setAttribute('class', 'tile')
-		oImg.setAttribute('alt', 'na')
-		oImg.style.top = top + 'px'
-		oImg.style.left = left + 'px'
+		oImg.className = 'tile'
+		oImg.style.background = 'url('+bgImg.src+') -'+bleft+'px -'+btop+'px no-repeat'
+		oImg.style.width = sw+'px'
+		oImg.style.height = sh_p+'px'
+		oImg.style.left = left+'px'
+		oImg.style.top = top+'px'
 		document.body.appendChild(oImg)
 	}
 }
 
-}(window)
+}($('app'))
