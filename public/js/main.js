@@ -43,8 +43,8 @@
 				if(i%width==0) {
 					row=Math.floor(i/width)
 					top=row*sh/2
-					//left=(container.getSize().x)/2 - row*sw/2
-					left=(1200)/2 - row*sw/2
+					left=(container.getSize().x)/2 - row*sw/2
+					//left=(1200)/2 - row*sw/2
 				}
 
 				drawTile(left, top, arr[i], clss)
