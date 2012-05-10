@@ -30,7 +30,10 @@
 			clss = 'tile'
 
 			if(layer.properties && layer.properties.type == 'objects')
-				clss += ' object'
+				clss += ' opaque object'
+
+			if(!layer.visible)
+				clss += ' opaque'
 
 			for(;arr.length > i;i++) {
 
@@ -72,3 +75,23 @@ function drawTile(left, top, pos, clss) {
 }
 
 }($('app'), tmp)
+
+
+
+// TEST
+
+$('btn-test').addEvent('mouseover', function () {
+	$$('.object').removeClass('opaque')
+})
+
+$('btn-test').addEvent('mouseout', function () {
+	$$('.object').addClass('opaque')
+})
+
+$('btn-test2').addEvent('mouseover', function () {
+	$$('.object').removeClass('opaque')
+})
+
+$('btn-test2').addEvent('mouseout', function () {
+	$$('.object').addClass('opaque')
+})

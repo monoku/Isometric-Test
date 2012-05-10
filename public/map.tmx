@@ -5,7 +5,7 @@
  </tileset>
  <layer name="suelo" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NkYGBgHMWDBgMAjw2X0pABAAA=
+   H4sIAAAAAAAAA2NkYGBgJBJzAjEbDsyFpI4ViAVxYPYhpI4HiDmgGCYG43OTEG6kYAAHhMyNkAEAAA==
   </data>
  </layer>
  <layer name="rejas" width="10" height="10">
@@ -15,18 +15,18 @@
  </layer>
  <layer name="paredes" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA7NhYGAwIYAtgdiYgTAwHYHqrIHYCIrtkeTskMSt0PQhmx2NJgcAFMFA/pABAAA=
+   H4sIAAAAAAAAA7NhYGAwIYAtgdiYAQI2MaACZL4pVN1GBvwApo4QoJV51FRnDcRGUGyPJGeHJG6Fpg/Z7Gg0OQD2XhookAEAAA==
   </data>
  </layer>
  <objectgroup name="test" width="10" height="10" visible="0">
-  <object name="estatua" type="hover" gid="115" x="32" y="64"/>
+  <object name="estatua" type="hover" gid="115" x="160" y="160"/>
  </objectgroup>
  <layer name="objects" width="10" height="10">
   <properties>
    <property name="type" value="objects"/>
   </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGBygZKAdMEgAAK/kCeOQAQAA
+   H4sIAAAAAAAAA2NgIB0UAXEZlCYEKsgwfyQDAEaRcYCQAQAA
   </data>
  </layer>
 </map>
