@@ -52,6 +52,8 @@ td{vertical-align:top}
 .chromeframe{margin:.2em 0;background:#ccc;color:#000;padding:.2em 0}
 #app{height:640px;left:-32px;position:relative;overflow:hidden;top:-16px;width:1280px}
 .tile{position:absolute}
+.object{cursor:pointer;-webkit-transition:all 250ms linear;-moz-transition:all 250ms linear;transition:all 250ms linear;}
+.object:hover{opacity:.5;filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50)}
 .ir{display:block;border:0;text-indent:-999em;overflow:hidden;background-color:transparent;background-repeat:no-repeat;text-align:left;direction:ltr;*line-height:0;}
 .ir br{display:none}
 .hidden{display:none;visibility:hidden}

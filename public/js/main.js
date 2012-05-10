@@ -1,4 +1,4 @@
-!function(container) {
+!function(container, map) {
 	var
 		contWidth = container.getSize().x,
 		contHeight = container.getSize().y,
@@ -7,12 +7,15 @@
 		sh_p=128,
 		bgImg = document.createElement("img")
 
-	bgImg.src = tmp.tilesets[0].image
+	bgImg.src = map.tilesets[0].image
 	bgImg.onload = initilize
 
 	function initilize() {
-		for(var i=0; i<tmp.layers.length;i++) {
-			drawLayer(tmp.layers[i])	
+		for(var i=0; i<map.layers.length;i++) {
+			if(map.layers[i].data)
+				drawLayer(map.layers[i])
+			else if(map.layers[i].objects)
+				drawObjects(map.layers[i])
 		}
 	}
 
@@ -23,7 +26,11 @@
 			top = 0,
 			arr = layer.data,
 			width = layer.width,
-			row
+			row,
+			clss = 'tile'
+
+			if(layer.properties && layer.properties.type == 'objects')
+				clss += ' object'
 
 			for(;arr.length > i;i++) {
 
@@ -33,14 +40,19 @@
 				if(i%width==0) {
 					row=Math.floor(i/width)
 					top=row*sh/2
-					left=(container.getSize().x)/2 - row*sw/2
+					//left=(container.getSize().x)/2 - row*sw/2
+					left=(1200)/2 - row*sw/2
 				}
 
-				drawTile(left, top, arr[i])
+				drawTile(left, top, arr[i], clss)
 			}
 	}
 
-function drawTile(left, top, pos) {
+	function drawObjects(layer) {
+		console.log('DIBUJIN')
+	}
+
+function drawTile(left, top, pos, clss) {
 	if (pos!=0) {
 		--pos
 		var
@@ -49,7 +61,7 @@ function drawTile(left, top, pos) {
 			bleft =  sw * (pos%width),
 			btop = Math.floor(pos/width) * sh_p
 
-		oImg.className = 'tile'
+		oImg.className = clss
 		oImg.style.background = 'url('+bgImg.src+') -'+bleft+'px -'+btop+'px no-repeat'
 		oImg.style.width = sw+'px'
 		oImg.style.height = sh_p+'px'
@@ -59,4 +71,4 @@ function drawTile(left, top, pos) {
 	}
 }
 
-}($('app'))
+}($('app'), tmp)
